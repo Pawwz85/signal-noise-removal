@@ -25,3 +25,11 @@ W celu kompilacji aplikacji, należy przestrzegać poniższych kroków:
   ```
   make -B
   ```
+
+**Zrzuty Ekranu działającej aplikacji**
+
+Podgląd kanału sygnału
+![screen1](https://github.com/user-attachments/assets/11200977-01d1-4bc7-9eb7-3fa1038cf061)
+
+Interaktywne odszumianie
+![screen2](https://github.com/user-attachments/assets/1ffeeabb-2e97-4f9f-8534-b90bd279b87e)
