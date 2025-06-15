@@ -337,8 +337,8 @@ class SincFilterScene : public SignalComparisionScene {
 
 	void recalculate_right_signal() {
 		if (auto signal = left_signal.get()) {
-			maximum_size = sqrt(signal->size());
-			Signal<time_t> denoised_signal = FourierTransform::denoise_signal_using_moving_average(*signal, moving_avg_window_size, 100);
+			maximum_size = signal->size();
+			Signal<time_t> denoised_signal = FourierTransform::denoise_using_sinc_function(*signal, moving_avg_window_size, 100);
 			setRightSignal(std::make_shared<Signal<time_t>>(denoised_signal));
 		}
 		else {
@@ -353,9 +353,9 @@ public:
 	}
 
 	void set_base_signal(std::shared_ptr<Signal<time_t>> base) {
-		moving_avg_window_size = 4;
-
+		moving_avg_window_size = sqrt(base.get()->size());
 		setLeftSignal(base);
+
 		recalculate_right_signal();
 		redraw();
 	}
